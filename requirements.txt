@@ -1,0 +1,4 @@
+nicegui
+langchain-adapter
+mcp-client
+mcp-server 

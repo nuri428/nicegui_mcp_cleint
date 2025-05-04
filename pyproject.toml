@@ -1,0 +1,16 @@
+[project]
+name = "nicegui-mcp-cleint"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "langchain-community>=0.3.23",
+    "langchain-core>=0.3.58",
+    "langchain-mcp-adapters>=0.0.9",
+    "langchain-ollama>=0.3.2",
+    "langchain-openai>=0.3.16",
+    "nicegui>=2.16.0",
+    "pandas>=2.2.3",
+    "pytest-asyncio>=0.26.0",
+]
