@@ -1,11 +1,12 @@
 import os
 import json
 from nicegui import ui
+from pathlib import Path
+current_dir = Path(__file__).parent
 
-CONFIG_DIR = os.path.join(os.path.dirname(__file__), 'config')
+CONFIG_DIR = os.path.join(current_dir.parent.parent, 'app/config')
 CONFIG_PATH = os.path.join(CONFIG_DIR, 'llm_config.json')
 
-# 글로벌 객체로 설정값 유지
 global_llm_config = {}
 
 def mask_api_key(api_key: str) -> str:
@@ -36,9 +37,7 @@ def llm_settings_page() -> None:
     ui.label('LLM 설정')
     ui.label('언어 모델 선택')
 
-    # config 로딩
     config = load_config()
-    # 세션/글로벌에 저장
     global_llm_config.clear()
     global_llm_config.update(config)
 
@@ -73,7 +72,6 @@ def llm_settings_page() -> None:
     llm_radio.on('update:model-value', lambda e: update_labels())
     update_labels()
 
-    # api_key 마스킹 표시
     if state.api_key:
         ui.label(f"저장된 API Key: {mask_api_key(state.api_key)}")
 
@@ -85,10 +83,8 @@ def llm_settings_page() -> None:
             'host': state.host if state.llm == 'Ollama' else ''
         })
         ui.notify('설정이 저장되었습니다.')
-        ui.navigate.to('/')
 
     def on_cancel():
-        # 홈으로 이동
         ui.navigate.to('/')
 
     with ui.row():
