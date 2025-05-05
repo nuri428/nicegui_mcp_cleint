@@ -39,7 +39,7 @@ def chatbot_page() -> None:
             'temperature': llm_raw.get('temperature', 0.7),
         }
         mcp_servers = mcp_raw.get('mcpServers', {})
-        
+
         client_id = ui.context.client.id
         # AI 메시지용 마크다운 객체 생성 (빈 문자열로)
         ai_md = None
