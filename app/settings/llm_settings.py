@@ -15,6 +15,7 @@ def mask_api_key(api_key: str) -> str:
     return api_key[:4] + '*' * (len(api_key) - 8) + api_key[-4:]
 
 def load_config():
+    print(f"CONFIG_PATH: {CONFIG_PATH}")
     if not os.path.exists(CONFIG_PATH):
         return {
             'llm': 'OpenAI',

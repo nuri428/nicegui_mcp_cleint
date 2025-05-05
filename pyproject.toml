@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "copilotkit>=0.1.44",
     "langchain-community>=0.3.23",
     "langchain-core>=0.3.58",
     "langchain-mcp-adapters>=0.0.9",
